@@ -44,14 +44,14 @@ def adjust_units(model, target, A):
             Var = np.vstack((Var, var))
 
         model = utils.set_model_WbLGWcMV(model, layer, W, b, Lm, Ln, G, Wc, Mean, Var)
-    find_cluster_drift(W, b, G, Mean)
+    #find_cluster_drift(W, b, G, Mean)
     return model
 
 
 def find_cluster_drift(W, b, G, Mean):
     Zn = np.dot(W, G.T) # + b.T          # ??? not b.T  ????
     An = Zn                         # ???????? Review this. ToDo
-    drift = An - Mean
+    drift = An - Mean               # broadcast shape mismatch!!
     variance = np.square(drift)
 
     return drift, variance

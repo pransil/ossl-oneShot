@@ -1,4 +1,4 @@
-"""planar_data_classification.py - code from Week 3"""
+"""backProp.py"""
 
 # Package imports
 import numpy as np
